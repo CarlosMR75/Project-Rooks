@@ -1,0 +1,33 @@
+###Obtener Todos los CheckIn
+GET http://localhost:3000/api/checkin
+
+###Crear CheckIn
+POST http://localhost:3000/api/checkin
+Content-Type: application/json
+
+{
+    "IdEmpleado":1221100262,
+    "Fecha":"28/02/2023",
+    "Hora":"21:45",
+    "Tipo":"Entrada"
+}
+
+###Obtener CheckIn por ID
+GET http://localhost:3000/api/checkin/63feea9df46b4a233c7dcb96
+
+###Eliminar CheckIn por ID
+DELETE http://localhost:3000/api/checkin/63fedfd7c488a03dfd3a6c79
+
+###Obtener Todos los CheckIn por IdEmpleado
+GET http://localhost:3000/api/checkin/IdEmpleado/1221100262
+
+###Actualizar CheckIn por ID
+PUT http://localhost:3000/api/checkin/63feea9df46b4a233c7dcb96
+Content-Type: application/json
+
+{
+    "IdEmpleado":1221100262,
+    "Fecha":"01/03/2023",
+    "Hora":"00:04",
+    "Tipo":"Salida"
+}
