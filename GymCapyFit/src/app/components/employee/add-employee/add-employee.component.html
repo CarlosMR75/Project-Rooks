@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                SignUp
+            </div>
+            <div class="card-body">
+                <form (submit)="signup()">
+                    <div class="form-group">
+                        <input type="number" [(ngModel)]="empleado.IdEmpleado" name="IdEmpleado" class="form-control"
+                            placeholder="IdEmpleado" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="empleado.Nombre" name="Nombre" class="form-control"
+                            placeholder="Nombre" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" [(ngModel)]="empleado.Edad" name="Edad" class="form-control"
+                            placeholder="Edad" required>
+                    </div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="true">Roles</a>
+                        <div class="dropdown-menu show" data-popper-placement="bottom-start"
+                            style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 42px);">
+                            <div class="form-check dropdown-item">
+                                <input class="form-check-input" type="checkbox" value="admin" id="flexCheckDefault"
+                                    [(ngModel)]="checkbox">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Admin
+                                </label>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="form-check dropdown-item">
+                                <input class="form-check-input" type="checkbox" value="instructor"
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Instructor
+                                </label>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="form-check dropdown-item">
+                                <input class="form-check-input" type="checkbox" value="mantenimiento"
+                                    id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Mantenimiento
+                                </label>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="form-check dropdown-item">
+                                <input class="form-check-input" type="checkbox" value="limpieza" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Limpieza
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <div class="form-group">
+                        <input type="tel" [(ngModel)]="empleado.Telefono" name="Telefono" class="form-control"
+                            placeholder="Telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" [(ngModel)]="empleado.Sueldo" name="Sueldo" class="form-control"
+                            placeholder="Sueldo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="empleado.Turno" name="Turno" class="form-control"
+                            placeholder="Turno" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="empleado.Correo" name="Correo" class="form-control"
+                            placeholder="Correo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" [(ngModel)]="empleado.Password" name="Password" class="form-control"
+                            placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        SignUp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

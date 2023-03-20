@@ -1,0 +1,68 @@
+<div class="contenedor">
+    <div class="info-employee">
+        <img src="https://raw.githubusercontent.com/CarlosMR75/Project-Rook/main/img/ast.png" alt="" class="bd-placeholder-img rounded-circle" height="155px" width="155px">
+        <h1 *ngIf="emp">{{emp.Nombre}}</h1>
+    </div>
+    <div class="employee-body d-flex flex-row">
+        <div class="info-body flex-fill me-4">
+            <p>Nombre Completo: Andrés Pérez</p>
+            <p>Contacto: andrhex13@gmail.com</p>
+            <p>No. Empleado: 1221100367</p>
+            <p>Rol: Mantenimiento</p>
+        </div>
+        <div class="stats-body flex-fill">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" data-bs-toggle="tab" href="#horaE" aria-selected="true" role="tab">Hora de entrada</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" data-bs-toggle="tab" href="#retardos" aria-selected="false" role="tab" tabindex="-1">Retardos</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" data-bs-toggle="tab" href="#faltas" aria-selected="true" role="tab" tabindex="-1">Faltas</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" data-bs-toggle="tab" href="#regMensual" aria-selected="false" role="tab" tabindex="-1" (click)="loadChart()">Registro mensual</a>
+                </li>
+              </ul>
+              <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active show" id="horaE" role="tabpanel">
+                    <div class="img-and-text">
+                      <div>
+                        <div class="calendar">
+                          <div class="calendar-header">
+                            <button class="prev-month-btn"><i class="fa-solid fa-angle-left"></i></button>
+                            <h2 class="calendar-month"></h2>
+                            <button class="next-month-btn"><i class="fa-solid fa-angle-right"></i></button>
+                          </div>
+                          <div class="calendar-days">
+                            <div class="calendar-day-header">Dom</div>
+                            <div class="calendar-day-header">Lun</div>
+                            <div class="calendar-day-header">Mar</div>
+                            <div class="calendar-day-header">Mie</div>
+                            <div class="calendar-day-header">Jue</div>
+                            <div class="calendar-day-header">Vie</div>
+                            <div class="calendar-day-header">Sab</div>
+                          </div>
+                          <div class="calendar-grid"></div>
+                        </div>
+                      </div>
+                        <p>Hora Entradas</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="retardos" role="tabpanel">
+                  <p>Retardos</p>
+                </div>
+                <div class="tab-pane fade" id="faltas" role="tabpanel">
+                  <p>Faltas</p>
+                </div>
+                <div class="tab-pane fade" id="regMensual" role="tabpanel">
+                  <p>Registro Mensual</p>
+                  <div class="chart-container">
+                    <canvas Id="myChart" #myChart></canvas>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

@@ -3,11 +3,11 @@
 	<form>
 		<div class="form-group">
 		  <label for="nombre">Nombre del rol:</label>
-		  <input type="text" id="nombre" name="nombre" (click)="noClick()">
+		  <input type="text" id="nombre" #nombre name="nombre" [(ngModel)]="nameRol">
 		</div>
   		<div class="form-group">
 			<label for="descripción">Descripción:</label>
-			<textarea id="descripción" name="descripción" rows="4" cols="50" style="resize: none;"></textarea>
+			<textarea id="descripción" name="descripción" [(ngModel)]="descRol" rows="4" cols="50" style="resize: none;"></textarea>
 		</div>
 		<div class="form-container">
 			<div class="form-group">
@@ -27,6 +27,6 @@
 				  </ul>
 			</div>
 		</div>
-		<input type="submit" value="Editar">
+		<input type="submit" value="Registrar" (click)="registrar()">
 	</form>  
 </div>

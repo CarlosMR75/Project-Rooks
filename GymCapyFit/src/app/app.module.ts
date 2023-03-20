@@ -10,6 +10,13 @@ import { RegrolComponent } from './components/regrol/regrol.component';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { GymcapyfitService } from './services/gymcapyfit.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ControlCheckinComponent } from './components/checkin/control-checkin/control-checkin.component';
+import { CheckinEmployeeComponent } from './components/checkin/checkin-employee/checkin-employee.component';
+import { AddEmployeeComponent } from './components/employee/add-employee/add-employee.component';
+import { EmployeesListComponent } from './components/employee/employees-list/employees-list.component';
+import { FormsModule } from '@angular/forms';
+import { RolListComponent } from './components/roles/rol-list/rol-list.component';
+import { RegistrarRolComponent } from './components/roles/registrar-rol/registrar-rol.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +24,19 @@ import { HttpClientModule } from '@angular/common/http';
     CheckInComponent,
     NavbarComponent,
     RegrolComponent,
+    ControlCheckinComponent,
+    CheckinEmployeeComponent,
+    AddEmployeeComponent,
+    EmployeesListComponent,
+    RolListComponent,
+    RegistrarRolComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ZXingScannerModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [GymcapyfitService],
   bootstrap: [AppComponent]
