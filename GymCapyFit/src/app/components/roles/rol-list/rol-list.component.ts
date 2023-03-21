@@ -30,4 +30,7 @@ export class RolListComponent {
     this.selectedRol = rol;
   }
 
+  deleteRol(){
+    console.log(this.selectedRol);
+  }
 }

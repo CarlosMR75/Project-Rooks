@@ -44,6 +44,8 @@ export class CheckinEmployeeComponent implements OnInit {
     );
     this.capyfit.getCheckEmployee(params['id']).subscribe(
       resp=>{
+        console.log("____________________");
+        console.log("Check");
         console.log(resp);
       },
       err => console.error(err)

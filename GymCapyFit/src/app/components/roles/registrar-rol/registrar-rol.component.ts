@@ -11,10 +11,9 @@ import { Rol } from 'src/app/models/Rol';
 })
 export class RegistrarRolComponent{
   newRol: Rol = {
-    //IdRol: '',
     Nombre: '',
     Descripcion: '',
-    //Menu: ''
+    Privilegios: ''
     // createdAt: '',
     // updatedAt: ''
   }
@@ -44,12 +43,14 @@ export class RegistrarRolComponent{
 
     this.newRol.Nombre = this.nameRol;
     this.newRol.Descripcion = this.descRol;
+    this.newRol.Privilegios = this.newRol.Nombre;
 
     console.log(this.newRol);
 
     this.capyfit.saveRol(this.newRol).subscribe(
       res => {
         console.log(res);
+        this.router.navigate(['/control-rol']);
       },
       err => console.log(err)
     );

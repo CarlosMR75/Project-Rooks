@@ -40,8 +40,8 @@ export class GymcapyfitService {
     return this.http.get(`${this.URL}/rol`);
   }
 
-  saveRol(rol: Rol):Observable<Rol>{
-    return this.http.post(`${this.URL}/rol/`,rol);
+  saveRol(rol){
+    return this.http.post<any>(`http://localhost:4000/api/rol`,rol);
   }
   
 }

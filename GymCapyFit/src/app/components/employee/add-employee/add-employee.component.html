@@ -1,85 +1,224 @@
-<div class="row">
-    <div class="col-md-4 mx-auto">
-        <div class="card">
-            <div class="card-header">
-                SignUp
-            </div>
-            <div class="card-body">
-                <form (submit)="signup()">
+<div class="container-signup">
+    <div class="card-add">
+        <div class="card-header">
+            <h1>SignUP</h1>
+        </div>
+    </div>
+    <div class="card-content">
+        <div class="card-body">
+            <form (submit)="signup()">
+                <div class="form-group">
+                    <div class="form-floating">
+                        <input type="number" min="0" class="form-control" id="inputFloat1" name="ID" [(ngModel)]="empleado.IdEmpleado" placeholder="1221100659">
+                        <label for="floatingInput">IdEmpleado</label>
+                      </div>
+                    <!--<input type="number" min="0" [(ngModel)]="empleado.IdEmpleado" name="IdEmpleado" class="form-control"
+                        [placeholder]="'IdEmpleado'" required autofocus>-->
+                </div>
+                <div class="form-group">
+                    <input type="text" [(ngModel)]="empleado.Nombre" name="Nombre" class="form-control"
+                        [placeholder]="'Nombre'" required autofocus>
+                </div>
+                <div class="form-group">
+                    <div class="form-floating">
+                        <input type="number" min="0" class="form-control" id="floatingInput" name="XD" [(ngModel)]="empleado.Edad" placeholder="name@example.com" required="true">
+                        <label for="floatingInput">Edad</label>
+                      </div>
+                    <!--<input type="number" min="18" [(ngModel)]="empleado.Edad" name="Edad" class="form-control"
+                        placeholder="Edad" required>-->
+                </div>
+                <!--<div class="form-group">
+                    <select>
+                        <option value="opcion1">Opción 1</option>
+                        <option value="opcion2">Opción 2</option>
+                        <option value="opcion3">Opción 3</option>
+                      </select>                  
+                </div>-->
+                <div class="form-group">
+                    <input type="tel" [(ngModel)]="empleado.Telefono" name="Telefono" class="form-control"
+                        placeholder="Telefono" required>
+                </div>
+                <!--<div class="form-group">
+                    <label class="form-label mt-4">Input addons</label>
                     <div class="form-group">
-                        <input type="number" [(ngModel)]="empleado.IdEmpleado" name="IdEmpleado" class="form-control"
-                            placeholder="IdEmpleado" required autofocus>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <span class="input-group-text">.00</span>
+                      </div>    
                     </div>
+                </div>-->
+                <div class="form-group">
+                    <label class="form-label">Sueldo</label>
                     <div class="form-group">
-                        <input type="text" [(ngModel)]="empleado.Nombre" name="Nombre" class="form-control"
-                            placeholder="Nombre" required autofocus>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input type="number" name="salo" class="form-control" min="0" [(ngModel)]="empleado.Sueldo">
+                      </div>
                     </div>
-                    <div class="form-group">
-                        <input type="number" [(ngModel)]="empleado.Edad" name="Edad" class="form-control"
-                            placeholder="Edad" required>
+                  </div>
+                <!--<div class="form-group">
+                    <input type="number" min="0" [(ngModel)]="empleado.Sueldo" name="Sueldo" class="form-control"
+                        placeholder="Sueldo" required>
+                </div>-->
+                <div class="form-group">
+                    <div class="dropdown mt-3">
+                        <button class="btn btn-secondary dropdown-toggle dropdown-toggle-end" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Selecciona uno o más Roles
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="">
+                            <li>
+                                <a class="dropdown-item" *ngFor="let opcion of opciones">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{opcion.Nombre}}" id="opcion{{opcion.IdRol}}" name="xd" [(ngModel)]="opcion.seleccionado">
+                                        <label class="form-check-label" for="{{opcion.IdRol}}">
+                                            {{opcion.Nombre}}
+                                        </label>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="true" aria-expanded="true">Roles</a>
-                        <div class="dropdown-menu show" data-popper-placement="bottom-start"
-                            style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 42px);">
-                            <div class="form-check dropdown-item">
-                                <input class="form-check-input" type="checkbox" value="admin" id="flexCheckDefault"
-                                    [(ngModel)]="checkbox">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Admin
-                                </label>
-                            </div>
-                            <div class="dropdown-divider"></div>
-                            <div class="form-check dropdown-item">
-                                <input class="form-check-input" type="checkbox" value="instructor"
-                                    id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Instructor
-                                </label>
-                            </div>
-                            <div class="dropdown-divider"></div>
-                            <div class="form-check dropdown-item">
-                                <input class="form-check-input" type="checkbox" value="mantenimiento"
-                                    id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Mantenimiento
-                                </label>
-                            </div>
-                            <div class="dropdown-divider"></div>
-                            <div class="form-check dropdown-item">
-                                <input class="form-check-input" type="checkbox" value="limpieza" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Limpieza
-                                </label>
-                            </div>
-                        </div>
-                    </li>
-                    <div class="form-group">
-                        <input type="tel" [(ngModel)]="empleado.Telefono" name="Telefono" class="form-control"
-                            placeholder="Telefono" required>
+                </div>
+                <!--<div class="form-group">
+                    <div class="dropdown mt-3">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Roles
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="">
+                            <li>
+                                <a class="dropdown-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="opcion1" id="opcion1" name="xd" [(ngModel)]="opcion1">
+                                        <label class="form-check-label" for="opcion1">
+                                            Opción 1
+                                        </label>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="opcion2" id="opcion2" name="xd" [(ngModel)]="opcion2">
+                                        <label class="form-check-label" for="opcion2">
+                                            Opción 2
+                                        </label>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="opcion3" id="opcion3" name="xd" [(ngModel)]="opcion3">
+                                        <label class="form-check-label" for="opcion3">
+                                            Opción 3
+                                        </label>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="form-group">
-                        <input type="number" [(ngModel)]="empleado.Sueldo" name="Sueldo" class="form-control"
-                            placeholder="Sueldo" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" [(ngModel)]="empleado.Turno" name="Turno" class="form-control"
-                            placeholder="Turno" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" [(ngModel)]="empleado.Correo" name="Correo" class="form-control"
-                            placeholder="Correo" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" [(ngModel)]="empleado.Password" name="Password" class="form-control"
-                            placeholder="Password" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">
-                        SignUp
-                    </button>
-                </form>
-            </div>
+                </div>-->      
+                <div class="form-group">
+                    <input type="text" [(ngModel)]="empleado.Turno" name="Turno" class="form-control"
+                        placeholder="Turno" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" [(ngModel)]="empleado.Correo" name="Correo" class="form-control"
+                        placeholder="Correo" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" [(ngModel)]="empleado.Password" name="Password" class="form-control"
+                        placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    SignUp
+                </button>
+            </form>
         </div>
     </div>
 </div>
+
+<!--<div class="container-signup">
+    <div class="card-add">
+        <div class="card-header">
+            SignUp
+        </div>
+        <div class="card-body">
+            <form (submit)="signup()">
+                <div class="form-group">
+                    <input type="number" [(ngModel)]="empleado.IdEmpleado" name="IdEmpleado" class="form-control"
+                        placeholder="IdEmpleado" required autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" [(ngModel)]="empleado.Nombre" name="Nombre" class="form-control"
+                        placeholder="Nombre" required autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="number" [(ngModel)]="empleado.Edad" name="Edad" class="form-control"
+                        placeholder="Edad" required>
+                </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="true">Roles</a>
+                    <div class="dropdown-menu show" data-popper-placement="bottom-start"
+                        style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 42px);">
+                        <div class="form-check dropdown-item">
+                            <input class="form-check-input" type="checkbox" value="admin" id="flexCheckDefault"
+                                [(ngModel)]="checkbox">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Admin
+                            </label>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="form-check dropdown-item">
+                            <input class="form-check-input" type="checkbox" value="instructor"
+                                id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Instructor
+                            </label>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="form-check dropdown-item">
+                            <input class="form-check-input" type="checkbox" value="mantenimiento"
+                                id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Mantenimiento
+                            </label>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="form-check dropdown-item">
+                            <input class="form-check-input" type="checkbox" value="limpieza" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Limpieza
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <div class="form-group">
+                    <input type="tel" [(ngModel)]="empleado.Telefono" name="Telefono" class="form-control"
+                        placeholder="Telefono" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" [(ngModel)]="empleado.Sueldo" name="Sueldo" class="form-control"
+                        placeholder="Sueldo" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" [(ngModel)]="empleado.Turno" name="Turno" class="form-control"
+                        placeholder="Turno" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" [(ngModel)]="empleado.Correo" name="Correo" class="form-control"
+                        placeholder="Correo" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" [(ngModel)]="empleado.Password" name="Password" class="form-control"
+                        placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    SignUp
+                </button>
+            </form>
+        </div>
+    </div>
+</div>-->

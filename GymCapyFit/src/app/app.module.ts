@@ -17,6 +17,7 @@ import { EmployeesListComponent } from './components/employee/employees-list/emp
 import { FormsModule } from '@angular/forms';
 import { RolListComponent } from './components/roles/rol-list/rol-list.component';
 import { RegistrarRolComponent } from './components/roles/registrar-rol/registrar-rol.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RegistrarRolComponent } from './components/roles/registrar-rol/registra
     AddEmployeeComponent,
     EmployeesListComponent,
     RolListComponent,
-    RegistrarRolComponent
+    RegistrarRolComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
