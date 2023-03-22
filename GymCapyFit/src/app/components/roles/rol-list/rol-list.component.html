@@ -6,7 +6,7 @@
             <div class="icon-container">
               <i class="fa-solid fa-eye fa-2x" data-bs-toggle="modal" data-bs-target="#infoModal" (click)="showModal(rol)"></i>
               <i class="fa-solid fa-pen-to-square fa-2x" routerLink="/editar/{{rol.Nombre}}"></i>
-              <i class="fa-solid fa-trash fa-2x" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="showModal(rol)"></i>
+              <i class="fa-solid fa-trash fa-2x" (click)="modalSWA2(rol)"></i><!--data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="showModal(rol)"-->
             </div>
         </div>
         <div class="bodi">
@@ -50,7 +50,7 @@
         <p>Descripción: {{selectedRol.Descripcion}}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="deleteRol()">Eliminar rol</button>
+        <button type="button" class="btn btn-primary" (click)="deleteRol(selectedRol)">Eliminar rol</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
@@ -75,3 +75,5 @@
       </div>
     </div>
   </div>
+
+  <button class="btn btn-primary" ></button>

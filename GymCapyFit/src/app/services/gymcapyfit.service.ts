@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CheckinModule } from '../models/Checkin.module';
 import { Rol } from '../models/Rol';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { Rol } from '../models/Rol';
 export class GymcapyfitService {
   checkin: CheckinModule[];
   private URL = 'http://localhost:4000/api';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router:Router) { }
 
   getAllCheckIn(): Observable<CheckinModule[]> {
     return this.http.get<CheckinModule[]>(this.URL + '/checkin');
@@ -20,10 +21,9 @@ export class GymcapyfitService {
     return this.http.post<any>(this.URL + '/checkin/', checkin);
   }
 
-reviewCheckIn(idEmpleado, fecha) {
+  reviewCheckIn(idEmpleado, fecha) {
     return this.http.get(this.URL + '/checkin/reviewChecks/' + idEmpleado + '/' + fecha);
-    }
-
+  }
 
   getCheckIn() {
     return this.http.get(this.URL + '/checkin');
@@ -53,4 +53,22 @@ reviewCheckIn(idEmpleado, fecha) {
     return this.http.post<any>(`http://localhost:4000/api/rol`,rol);
   }
   
+  deleteRol(nameRol: String){
+    return this.http.delete<any>(`http://localhost:4000/api/rol/${nameRol}`);
+  }
+
+  //JUANPA AQUÏ ABAJO PONGA TODO LO QUE OCUPE PARA LLEVR UN CONTROL
+  loggedIn() {
+    return !!localStorage.getItem('token');
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/signin']);
+  }
+
 }

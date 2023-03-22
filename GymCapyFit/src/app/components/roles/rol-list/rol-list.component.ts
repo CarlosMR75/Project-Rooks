@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { GymcapyfitService } from 'src/app/services/gymcapyfit.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-rol-list',
@@ -30,7 +31,32 @@ export class RolListComponent {
     this.selectedRol = rol;
   }
 
-  deleteRol(){
-    console.log(this.selectedRol);
+  deleteRol(rol: any){
+    console.log(rol.Nombre);
+    this.capyfit.deleteRol(rol.Nombre).subscribe(res => {
+      console.log(res);
+    },
+    err => { console.error(err)}
+    );
+  }
+
+  modalSWA2(rol: any){
+    this.selectedRol = rol;
+    Swal.fire({
+      title: '¿Quieres borrar el rol?',//+this.selectedRol.Nombre,//Estás seguro?
+      text: 'Esta acción no se puede deshacer.',//+this.selectedRol.Nombre,
+      html: '<p>Rol: '+this.selectedRol.Nombre+'</p>',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, hacerlo',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('¡Hecho!', 'Has eliminado al rol '+this.selectedRol.Nombre, 'success');//'El usuario ha seleccionado "Sí, hacerlo".', 'success');
+        this.deleteRol(rol);
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelado', 'No se ha eliminado al rol', 'error');
+      }
+    }); 
   }
 }
