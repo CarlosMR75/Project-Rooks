@@ -1,12 +1,12 @@
 <header>
     <h1>Lista de empleados</h1>
     <div class="search-container">
-      <input type="text" placeholder="Buscar empleado...">
+      <input type="text" class="form-control" placeholder="Buscar empleado..." name="filterPost" [(ngModel)]="filterPost">
       <button routerLink="/add">Agregar empleado</button>
     </div>
 </header>
 <div class="employee-container">
-    <div class="employee-card" *ngFor="let employee of employees">
+    <div class="employee-card" *ngFor="let employee of employees | filter:filterPost">
       <img src="https://i.pinimg.com/originals/70/51/0d/70510d702f83003889aaf3d21b7f4efb.jpg" alt="Foto del empleado">
       <h2>{{employee.Nombre}}</h2>
       <p>Software Developer</p>

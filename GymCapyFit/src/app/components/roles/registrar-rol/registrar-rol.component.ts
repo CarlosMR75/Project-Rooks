@@ -47,13 +47,13 @@ export class RegistrarRolComponent{
 
     console.log(this.newRol);
 
-    this.capyfit.saveRol(this.newRol).subscribe(
-      res => {
-        console.log(res);
-        this.router.navigate(['/control-rol']);
-      },
-      err => console.log(err)
-    );
+    // this.capyfit.saveRol(this.newRol).subscribe(
+    //   res => {
+    //     console.log(res);
+    //     this.router.navigate(['/control-rol']);
+    //   },
+    //   err => console.log(err)
+    // );
   }
 
 }

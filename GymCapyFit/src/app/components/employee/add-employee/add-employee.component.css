@@ -8,9 +8,10 @@
    /*padding: 10px;*/
    display: grid;
    gap: 20px;
-   margin-bottom: 150px;
+   margin-bottom: 50px;
 }
 .card-header {
+    text-align: center;
     background-color: #ccc;
     padding: 10px;
     border-top-left-radius: 15px; /* Aplica el radio solo a la parte superior */
@@ -64,4 +65,8 @@ select {
 
 .form-check-input {
     cursor: pointer;
+}
+
+footer {
+    text-align: center;
 }

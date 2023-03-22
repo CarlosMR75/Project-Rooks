@@ -50,6 +50,7 @@
     height: 700px;
 }
 .chart-container {
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,12 +78,12 @@
     color: #ccc;
 }
 .prev-month-btn:hover, .next-month-btn:hover {
-    color: #188cfc;
+    color: #1a1a1a;
 }
 .calendar-month {
   font-size: 1.2em;
   /*font-weight: bold*/
-  color: #188cfc;
+  color: #1a1a1a;
 }
 .calendar-grid {
     display: grid;
@@ -95,7 +96,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    background-color: #188cfc;
+    background-color: #1a1a1a;
     height: 50px;
     padding: 15px;
     color: white;

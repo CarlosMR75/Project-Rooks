@@ -16,9 +16,14 @@ export class GymcapyfitService {
     return this.http.get<CheckinModule[]>(this.URL + '/checkin');
   }
 
-  createCheckIn(checkin: CheckinModule): Observable<CheckinModule[]> {
-    return this.http.post<CheckinModule[]>(this.URL + '/checkin', checkin);
+  createCheckIn(checkin) {
+    return this.http.post<any>(this.URL + '/checkin/', checkin);
   }
+
+reviewCheckIn(idEmpleado, fecha) {
+    return this.http.get(this.URL + '/checkin/reviewChecks/' + idEmpleado + '/' + fecha);
+    }
+
 
   getCheckIn() {
     return this.http.get(this.URL + '/checkin');
@@ -29,11 +34,15 @@ export class GymcapyfitService {
   }
 
   getOneEmployee(id: String) {
-    return this.http.get(`${this.URL}/empleado/IdEmpleado/${id}`);
+    return this.http.get(`${this.URL}/empleado/${id}`);
+  }
+
+  saveEmployye(newEmp) {
+    return this.http.post<any>(`${this.URL}/empleado/signup`,newEmp);
   }
 
   getCheckEmployee(id: String) {
-    return this.http.get(`${this.URL}/checkin/IdEmpleado/${id}`);
+    return this.http.get(`${this.URL}/checkin/${id}`);
   }
 
   getAllRoles() {

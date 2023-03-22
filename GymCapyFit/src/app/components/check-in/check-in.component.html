@@ -1,20 +1,45 @@
-<div>
-  <select #selectList (change)="selectCamera(selectList.value)">
-    <option *ngFor="let camera of cameras" value={{camera.label}}>
-      {{ camera.label }}
-    </option>
-  </select>
-  <zxing-scanner style="width: 500px;"
-  [enable]="scannerEnabled"
-  [device]="myDevice"
-  (camerasFound)="camerasFoundHandler($event)"
-  (scanSuccess)="scanSuccessHandler($event)"
-></zxing-scanner>
+<br>
+<div class="container">
+  <div class="centered">
+    <select #selectList (change)="selectCamera(selectList.value)">
+      <option *ngFor="let camera of cameras" value={{camera.label}}>
+        {{ camera.label }}
+      </option>
+    </select>
+    <zxing-scanner style="width: 500px;"
+      [enable]="scannerEnabled"
+      [device]="myDevice"
+      (camerasFound)="camerasFoundHandler($event)"
+      (scanSuccess)="scanSuccessHandler($event)"
+    ></zxing-scanner>
+  </div>
 </div>
+
 <hr />
 <div>
   <a id="data">xd</a>
   <img src="" alt="" id="qr" />
 </div>
 <p *ngFor="let result of results">{{result}}</p>
+
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="titleModal">Más información del rol</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Nombre: </p>
+        <p>Descripción:</p>
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button (click)="openModal()">Mostrar Modal</button>
 

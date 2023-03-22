@@ -18,6 +18,9 @@ import { FormsModule } from '@angular/forms';
 import { RolListComponent } from './components/roles/rol-list/rol-list.component';
 import { RegistrarRolComponent } from './components/roles/registrar-rol/registrar-rol.component';
 import { HomeComponent } from './components/home/home.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { FooterComponent } from './components/footer/footer.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { HomeComponent } from './components/home/home.component';
     EmployeesListComponent,
     RolListComponent,
     RegistrarRolComponent,
-    HomeComponent
+    HomeComponent,
+    FilterPipe,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +44,7 @@ import { HomeComponent } from './components/home/home.component';
     FormsModule,
     ZXingScannerModule,
     HttpClientModule,
+    SweetAlert2Module
   ],
   providers: [GymcapyfitService],
   bootstrap: [AppComponent]

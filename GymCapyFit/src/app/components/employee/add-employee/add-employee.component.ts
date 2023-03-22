@@ -53,6 +53,7 @@ export class AddEmployeeComponent {
 
   signup() {
     let roles = [];
+    this.opcionesSeleccionadas = [];
     for (let opcion of this.opciones) {
       if (opcion.seleccionado) {
         this.opcionesSeleccionadas.push(opcion.Nombre);
@@ -61,7 +62,15 @@ export class AddEmployeeComponent {
     this.empleado.Rol = this.opcionesSeleccionadas;
     console.log("Roles seleccionados:", this.opcionesSeleccionadas);
     console.log(this.empleado);
-    this.router.navigate(['/employees']);
+    //this.router.navigate(['/employees']);
+
+    this.capyfit.saveEmployye(this.empleado).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => console.log(err)
+    );
+
   //  console.log(this.checkbox);
   //  console.log(this.empleado);
   //  this.authService.signUp(this.empleado)

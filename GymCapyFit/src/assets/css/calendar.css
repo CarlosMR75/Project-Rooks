@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    background-color: #188cfc;
+    background-color: #1a1a1a;
     height: 50px;
     padding: 15px;
     color: white;
@@ -28,6 +28,7 @@
   }
   .calendar-day.green {
     border: 1px solid #089000;
+    background-color: #089000;
   }
   .calendar-day.non-day {
     cursor: auto;
@@ -36,7 +37,7 @@
     border: none;
   }
   .calendar-day.today {
-    background-color: #188cfc;
+    background-color: #1a1a1a;
     color: white;
     border: none;
   }
